@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}About - Modern Chatbot{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center mb-12">
+        <div class="inline-flex items-center justify-center p-6 bg-blue-600 rounded-full mb-6">
+            {{ lucide.icon('info', class='h-16 w-16 text-white') }}
+        </div>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">About Modern Chatbot</h1>
+        <p class="text-xl text-gray-600">Learn more about our intelligent conversation platform</p>
+    </div>
+    
+    <div class="prose prose-lg max-w-none">
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
+                {{ lucide.icon('target', class='h-6 w-6 mr-2 text-blue-600') }}
+                Our Mission
+            </h2>
+            <p class="text-gray-700 mb-6">
+                We're building the future of conversational AI with a focus on simplicity, security, and user experience. 
+                Our chatbot platform combines cutting-edge technology with an intuitive interface to deliver meaningful interactions.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+                    {{ lucide.icon('code', class='h-5 w-5 mr-2 text-blue-600') }}
+                    Technology Stack
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        Flask 3.1.1 - Web Framework
+                    </li>
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        Flask-Security - Authentication
+                    </li>
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        Flask-RESTful - API Management
+                    </li>
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        SQLite - Database
+                    </li>
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        Lucide Icons - Beautiful UI
+                    </li>
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        Tailwind CSS - Styling
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+                    {{ lucide.icon('shield', class='h-5 w-5 mr-2 text-blue-600') }}
+                    Security Features
+                </h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        CSRF Protection
+                    </li>
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        Secure Session Management
+                    </li>
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        Password Hashing
+                    </li>
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        Input Validation
+                    </li>
+                    <li class="flex items-center">
+                        {{ lucide.icon('check', class='h-4 w-4 mr-2 text-green-600') }}
+                        Secure Configuration
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
+                {{ lucide.icon('users', class='h-6 w-6 mr-2 text-blue-600') }}
+                Get Started
+            </h2>
+            <p class="text-gray-700 mb-6">
+                Ready to experience intelligent conversations? Join our platform today and start chatting with our AI assistant.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                {% if not current_user.is_authenticated %}
+                <a href="{{ url_for_security('register') }}" 
+                   class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200">
+                    {{ lucide.icon('user-plus', class='h-5 w-5 mr-2') }}
+                    Create Account
+                </a>
+                <a href="{{ url_for_security('login') }}" 
+                   class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200">
+                    {{ lucide.icon('log-in', class='h-5 w-5 mr-2') }}
+                    Sign In
+                </a>
+                {% else %}
+                <a href="{{ url_for('main.chat') }}" 
+                   class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200">
+                    {{ lucide.icon('message-square', class='h-5 w-5 mr-2') }}
+                    Start Chatting
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

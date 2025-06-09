@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% from "security/_macros.html" import render_field_with_errors, render_field %}
+
+{% block title %}Sign Up - Modern Chatbot{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <div>
+            <div class="flex justify-center">
+                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                    {{ lucide.icon('user-plus', class='h-8 w-8 text-white') }}
+                </div>
+            </div>
+            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                Create your account
+            </h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+                Or
+                <a href="{{ url_for_security('login') }}" class="font-medium text-blue-600 hover:text-blue-500">
+                    sign in to your existing account
+                </a>
+            </p>
+        </div>
+        
+        <div class="bg-white py-8 px-6 shadow rounded-lg">
+            {% include "security/_messages.html" %}
+            
+            <form class="space-y-6" action="{{ url_for_security('register') }}" method="POST" name="register_user_form">
+                {{ register_user_form.hidden_tag() }}
+                
+                <div>
+                    {{ render_field_with_errors(register_user_form.email, class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm") }}
+                </div>
+                
+                <div>
+                    {{ render_field_with_errors(register_user_form.password, class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm") }}
+                </div>
+                
+                {% if register_user_form.password_confirm %}
+                <div>
+                    {{ render_field_with_errors(register_user_form.password_confirm, class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm") }}
+                </div>
+                {% endif %}
+                
+                <div>
+                    {{ render_field(register_user_form.submit, class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

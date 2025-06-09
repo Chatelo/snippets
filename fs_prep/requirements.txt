@@ -1,0 +1,15 @@
+Flask==3.1.0
+Flask-SQLAlchemy==3.1.1
+Flask-Security-Too==5.4.3
+Flask-RESTful==0.3.10
+Flask-Migrate==4.0.7
+Flask-WTF==1.2.1
+WTForms==3.1.2
+Flask-Mail==0.10.0
+Flask-Bootstrap==3.3.7.1
+Flask-FontAwesome==0.1.5
+Flask-Moment==1.0.6
+python-dotenv==1.0.1
+bcrypt==4.2.0
+Pillow==10.4.0
+reportlab==4.2.5

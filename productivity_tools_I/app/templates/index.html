@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to Modern Chatbot{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex flex-col">
+    <!-- Hero Section -->
+    <div class="flex-1 flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <div class="inline-flex items-center justify-center p-6 bg-blue-600 rounded-full mb-6">
+                    {{ lucide.icon('message-circle', class='h-16 w-16 text-white') }}
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                    Modern <span class="text-blue-600">Chatbot</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Experience intelligent conversations with our sleek, modern chatbot. 
+                    Built with Flask and enhanced with beautiful Lucide icons.
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{{ url_for_security('register') }}" 
+                   class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200">
+                    {{ lucide.icon('user-plus', class='h-5 w-5 mr-2') }}
+                    Get Started
+                </a>
+                <a href="{{ url_for_security('login') }}" 
+                   class="inline-flex items-center px-8 py-4 border border-gray-300 text-lg font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200">
+                    {{ lucide.icon('log-in', class='h-5 w-5 mr-2') }}
+                    Sign In
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Chatbot?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Built with modern technologies and best practices for a seamless experience.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="inline-flex items-center justify-center p-4 bg-blue-100 rounded-lg mb-4">
+                        {{ lucide.icon('shield-check', class='h-8 w-8 text-blue-600') }}
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Secure & Safe</h3>
+                    <p class="text-gray-600">Built with Flask-Security for robust authentication and data protection.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="inline-flex items-center justify-center p-4 bg-green-100 rounded-lg mb-4">
+                        {{ lucide.icon('zap', class='h-8 w-8 text-green-600') }}
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Fast & Responsive</h3>
+                    <p class="text-gray-600">Optimized for speed with a responsive design that works on all devices.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="inline-flex items-center justify-center p-4 bg-purple-100 rounded-lg mb-4">
+                        {{ lucide.icon('palette', class='h-8 w-8 text-purple-600') }}
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Beautiful UI</h3>
+                    <p class="text-gray-600">Modern interface with Lucide icons and Tailwind CSS for elegant design.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
