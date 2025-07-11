@@ -1,0 +1,9 @@
+.env
+.county/
+config.py
+.github/
+# Ignore Python cache files
+__pycache__/
+__pycache__
+lesson*
+xxx*
